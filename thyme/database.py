@@ -17,7 +17,7 @@ class Entry(Base):
         return "<Entry %s>" % self.title
 
 
-def initialize_database():
+def init_db():
     engine = create_engine('sqlite:///:memory:', echo=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)

@@ -1,0 +1,5 @@
+CherryPy==3.2.4
+Jinja2==2.6
+SQLAlchemy==0.8.1
+distribute==0.6.31
+pywin32==218
