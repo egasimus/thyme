@@ -1,5 +1,3 @@
-from multiprocessing import Process
-
 import cherrypy
 
 from .database import init_db, Entry
@@ -17,11 +15,5 @@ class ThymeFace:
     index.exposed = True
 
 
-def frontend():
-    cherrypy.quickstart(ThymeFace(db=init_db()))
-
-
 def launch_frontend():
-    p = Process(target=frontend)
-    p.start()
-    return p
+    cherrypy.quickstart(ThymeFace(db=init_db()))
