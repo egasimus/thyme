@@ -2,6 +2,8 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+from .settings import DB_PATH
+
 
 Base = declarative_base()
 
@@ -18,7 +20,7 @@ class Entry(Base):
 
 
 def init_db():
-    engine = create_engine('sqlite:///:memory:', echo=True)
+    engine = create_engine(DB_PATH, convert_unicode=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
