@@ -9,7 +9,6 @@
         }
 
         .timeline {
-            border: 1px solid red;
             font-size: 0;
         }
 
@@ -27,8 +26,8 @@
 
 {% for e in timeline|reverse %}
 
-    <span class="entry"
-          style="width: {{ e.width|round(2) }}%;
+    <span class="entry" id="entry-{{ e.id }}" title="{{ e.title }} ({{ e.duration }})"
+          style="width: {{ e.width|round(4) }}%;
                  background: {{ e.color }}"></span>
 
 {% endfor %}

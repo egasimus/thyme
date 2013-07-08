@@ -27,11 +27,13 @@ class ThymeFace(object):
             duration = end_time - entry.time
             total_time += duration
             end_time = entry.time
-            timeline.append({'title': entry.title,
+            timeline.append({'id': entry.id,
+                             'title': entry.title,
                              'duration': duration})
 
         for entry in timeline:
-            entry.update({'width': entry['duration'] / total_time * 100,
+            width = entry['duration'] / total_time * 100
+            entry.update({'width': width,
                           'color': 'rgb(%s,%s,%s)' % (randrange(255),
                                                       randrange(255),
                                                       randrange(255),)})
