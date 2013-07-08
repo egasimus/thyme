@@ -3,16 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Thyme</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .timeline {
+            border: 1px solid red;
+            font-size: 0;
+        }
+
+        .entry {
+            display: inline-block;
+            height: 24px;
+        }
+    </style>
 </head>
 <body>
 
-Test.
+<div class="total">{{ total_time }}</div>
 
-{% for e in entries %}
+<div class="timeline">
 
-    {{ e.id }}
+{% for e in timeline|reverse %}
+
+    <span class="entry"
+          style="width: {{ e.width|round(2) }}%;
+                 background: {{ e.color }}"></span>
 
 {% endfor %}
+
+</div>
 
 </body>
 </html>
